@@ -1,0 +1,35 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #app, #app > .grid {
+    height: 100%;
+    margin: 0;
+}
+
+@layer base {
+    h2 {
+        @apply text-red-700;
+        @apply text-xl;
+    }
+    h2 {
+        /*@apply text-xl;*/
+    }
+
+    section {
+        min-height: 20%;
+
+        padding: 12px;
+        margin: 12px auto;
+    }
+
+    button {
+        @apply px-7 py-2 mx-2 font-semibold text-white bg-pink-600 rounded;
+    }
+
+    input {
+        display: block;
+        margin: 12px auto;
+    }
+}
