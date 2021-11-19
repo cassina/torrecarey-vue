@@ -17,6 +17,9 @@
   },
   "license": "ISC",
   "dependencies": {
-    "openzeppelin-solidity": "^2.1.1"
+    "@truffle/hdwallet-provider": "^1.7.0",
+    "openzeppelin-solidity": "^2.1.1",
+    "truffle-hdwallet-provider-privkey": "^0.3.0",
+    "web3": "^1.6.1"
   }
 }

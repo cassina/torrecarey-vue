@@ -1,5 +1,5 @@
-const TutorialToken = artifacts.require("TutorialToken");
+const Torrecarey = artifacts.require("Torrecarey");
 
 module.exports = function(deployer) {
-  deployer.deploy(TutorialToken);
+  deployer.deploy(Torrecarey);
 };

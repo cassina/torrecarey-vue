@@ -1,40 +1,50 @@
 <template>
   <div v-if="isDrizzleInitialized" id="app">
-    <img alt="Vue logo" src="./assets/hermes.png" style="max-width: 200px; margin: 0 auto 24px auto"/>
+    <img alt="Hermes City" class="hermes-flag" src="./assets/hermes.png"/>
 
-    <section>
-      <div class="max-w-lg rounded overflow-hidden shadow-lg m-auto">
-
-        <div class="px-12 py-6">
+    <div class="grid grid-cols-2 gap-4">
+      <section>
+        <div class="h-card">
           <div class="font-bold text-xl mb-2">Ether</div>
           <drizzle-account units="Ether" :precision="10" />
-<!--          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>-->
-<!--          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>-->
-<!--          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>-->
         </div>
+      </section>
+      <div class="">
+        <section>
+          <div class="h-card">
+            <h2>Torrecarey Token</h2>
+            <TutorialToken />
+          </div>
+        </section>
+
+        <section>
+          <div class="h-card">
+            <h2>Enviar Torrecarey</h2>
+
+            <drizzle-contract
+                contractName="Torrecarey"
+                method="balanceOf"
+                label="Tu balance"
+                :methodArgs="accounts"
+            />
+
+            <drizzle-contract-form
+                contractName="Torrecarey"
+                method="transfer"
+                :placeholders="placeholders"
+            />
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h2>Torrecarey Token</h2>
-      <TutorialToken />
-    </section>
-
-    <section>
-      <h2>Enviar Torrecarey</h2>
-      <drizzle-contract-form
-          contractName="TutorialToken"
-          method="transfer"
-          :placeholders="placeholders"
-      />
-    </section>
   </div>
 
   <div v-else>Loading...</div>
 </template>
 
 <script>
-import TutorialToken from './TutorialToken'
+import TutorialToken from './components/TorrecareyInfo'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -45,9 +55,15 @@ export default {
 
   computed: {
     ...mapGetters('drizzle', ['isDrizzleInitialized']),
+    ...mapGetters('accounts', ['activeAccount', 'activeBalance']),
+
     placeholders() {
       return ['Para', 'Cantidad']
-    }
+    },
+
+    accounts() {
+      return [this.activeAccount]
+    },
  }
 }
 </script>
