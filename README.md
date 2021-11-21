@@ -36,7 +36,7 @@ import the `accounts[0]` account into Metamask
 - You'll see ~100 ETH in the account and the address should match the first account of the accounts in the console
 - You should see the Vue app and logo, if you see a console error, reload the page
 - You can use the private keys from the console to import the other test accounts
-- Add accounts and transfer a som TT's to an account
+- Add accounts and transfer a some TT's to an account
 - What just happened?
 
 ## Development Setup

@@ -24,13 +24,6 @@ module.exports = {
       gas: 4500000,
       gasPrice: 10000000000,
       network_id: 3
-    },
-    testnet: {
-      provider: () => new HDWalletProvider(privateKey, `https://data-seed-prebsc-1-s1.binance.org:8545`),
-      network_id: 97,
-      confirmations: 10,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    },
+    }
   }
 };
